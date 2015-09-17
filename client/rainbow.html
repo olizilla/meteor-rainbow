@@ -3,9 +3,16 @@
 </head>
 
 <body>
+  <a title="(╯°□°）╯︵ TABLEFLIP" class="tableflip" href="https://tableflip.io">TABLEFLIP</a>
   {{> svg}}
 </body>
 
 <template name="svg">
-  <svg id="box" width="100%" height="800" viewBox="-50 -50 100 100"></svg>
+  <svg id="box" width="100%" height="100%" viewBox="-50 -50 100 100"></svg>
+  <div class="controls">
+    <input id="x" type="range" min="-100" max="100" step="1" value="{{session 'x'}}" autofocus>
+    <input id="y" type="range" min="-100" max="100" step="1" value="{{session 'y'}}">
+    <input id="w" type="range" min="0" max="200" step="1" value="{{session 'w'}}">
+    <input id="h" type="range" min="0" max="200" step="1" value="{{session 'h'}}">
+  </div>
 </template>

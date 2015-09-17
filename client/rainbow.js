@@ -1,14 +1,28 @@
 Session.setDefault('w', 2)
-Session.setDefault('h', 100)
+Session.setDefault('h', 200)
 Session.setDefault('x', -3)
 Session.setDefault('y', -40)
 
+Template.svg.events({
+  'change': function (evt) {
+    var el = evt.target
+    console.log('change', el.id, el.value)
+    Session.set(el.id, el.value)
+  }
+})
+
+Template.registerHelper('session', function (key) {
+  return Session.get(key)
+})
+
 var count = 0
-setInterval(function () {
-  var step = Math.sin(count/300)
-  draw(Math.abs(step) + 4)
+function move () {
+  var step = Math.sin(count/600)
+  draw(step + 4)
   count++
-}, 50)
+  window.requestAnimationFrame(move)
+}
+window.requestAnimationFrame(move)
 
 function draw (step) {
   var w = Session.get('w')
@@ -81,3 +95,4 @@ function makeSVG(tag, attrs) {
     el.setAttribute(k, attrs[k]);
   return el;
 }
+

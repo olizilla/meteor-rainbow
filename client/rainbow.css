@@ -1,4 +1,29 @@
 body {
   text-align:center;
-  background: #222;
+  margin:0;
+  background: #F7F7F7;
+  overflow: hidden;
+}
+.controls{
+  opacity: 0.6;
+  position:fixed;
+  bottom:26px;
+  width: 100%;
+}
+.tableflip {
+  display: block;
+  width:30px;
+  height: 34px;
+  position: absolute;
+  top: 20px;
+  left:18px;
+  background: url(https://tableflip.io/img/tableflip.min.svg) no-repeat;
+  background-size: 100% auto;
+  font-size:0;
+  user-select: none;
+  opacity: 0.8;
+  transition: all 400ms;
+}
+.tableflip:hover {
+  opacity: 1;
 }
